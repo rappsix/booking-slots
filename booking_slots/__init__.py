@@ -5,6 +5,16 @@
 только stdlib и чистые функции, которые легко тестировать.
 """
 
+from .gcal import (
+    CalendarClient,
+    CalendarError,
+    CalendarToken,
+    EventDraft,
+    SyncResult,
+    TokenExpired,
+    merge_intervals,
+)
+from .gcal import busy_intervals as gcal_busy_intervals
 from .schedule import ShiftSchedule, WeeklySchedule, WorkWindow
 from .slots import (
     Booking,
@@ -19,10 +29,12 @@ from .slots import (
 from .timeoff import TimeOff
 
 __all__ = [
+    # графики и время
     "WorkWindow",
     "WeeklySchedule",
     "ShiftSchedule",
     "TimeOff",
+    # расчёт слотов
     "Service",
     "Booking",
     "Hold",
@@ -31,6 +43,15 @@ __all__ = [
     "visit_slots",
     "available_dates",
     "next_slot",
+    # синхронизация с Google Calendar
+    "CalendarToken",
+    "EventDraft",
+    "CalendarClient",
+    "SyncResult",
+    "CalendarError",
+    "TokenExpired",
+    "gcal_busy_intervals",
+    "merge_intervals",
 ]
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
